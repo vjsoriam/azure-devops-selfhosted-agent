@@ -1,14 +1,14 @@
 version: 2
 jobs:
-  validate:
-    docker:
-      - image: hashicorp/packer:full-1.5.5
-    working_directory: ~/packer
-    steps:
-      - checkout
-      - run:
-          name: Validate base
-          command: packer validate ./ubuntu1604-docker.json
+#  validate:
+#    docker:
+#      - image: hashicorp/packer:full-1.5.5
+#    working_directory: ~/packer
+#    steps:
+#      - checkout
+#      - run:
+#          name: Validate base
+#          command: packer validate ./ubuntu1604-docker.json
   build-base:
     docker:
       - image: hashicorp/packer:full-1.5.5
@@ -20,8 +20,8 @@ jobs:
           command: apk add docker-cli
       - attach_workspace:
           at: ~/packer
-      - setup_remote_docker:
-          docker_layer_caching: true
+#      - setup_remote_docker:
+#          docker_layer_caching: true
       - run:
           name: Build base
           command: packer build ./ubuntu1604-docker.json
