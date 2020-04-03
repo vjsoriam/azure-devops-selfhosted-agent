@@ -37,6 +37,6 @@ workflows:
   build-and-deploy:
     jobs:
 #      - validate
-      - build-base:
+      - build-base
 #          requires:
 #            - validate
